@@ -35,6 +35,24 @@ tracks/1/keys = {
 "values": [Vector2(-6, -31)]
 }
 
+[sub_resource type="Animation" id="Animation_v0k0e"]
+resource_name = "fall"
+length = 0.375012
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(5, 4), Vector2i(6, 4), Vector2i(7, 4)]
+}
+
 [sub_resource type="Animation" id="Animation_s1rgi"]
 resource_name = "idle"
 length = 1.00001
@@ -63,6 +81,23 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-6, -31)]
+}
+
+[sub_resource type="Animation" id="Animation_vlldt"]
+resource_name = "jump"
+length = 0.625013
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 4), Vector2i(1, 4), Vector2i(2, 4), Vector2i(3, 4)]
 }
 
 [sub_resource type="Animation" id="Animation_0j2ni"]
@@ -95,41 +130,6 @@ tracks/1/keys = {
 "values": [Vector2(-6, -47)]
 }
 
-[sub_resource type="Animation" id="Animation_vlldt"]
-resource_name = "jump"
-length = 0.625013
-step = 0.125
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 4), Vector2i(1, 4), Vector2i(2, 4), Vector2i(3, 4)]
-}
-
-[sub_resource type="Animation" id="Animation_v0k0e"]
-resource_name = "fall"
-length = 0.375012
-loop_mode = 1
-step = 0.125
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.125, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [Vector2i(5, 4), Vector2i(6, 4), Vector2i(7, 4)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v0k0e"]
 _data = {
 &"RESET": SubResource("Animation_j23h2"),
@@ -140,8 +140,8 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vlldt"]
-radius = 13.1
-height = 55.25
+radius = 17.0
+height = 62.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_kpjcp")
@@ -184,5 +184,5 @@ vframes = 26
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -19)
+position = Vector2(3, -20)
 shape = SubResource("CapsuleShape2D_vlldt")
